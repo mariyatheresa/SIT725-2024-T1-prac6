@@ -10,7 +10,9 @@ exports.submitFeedback = async (req, res) => {
     try {
         const savedFeedback = await newFeedback.save();
         console.log('Review saved successfully:', savedFeedback);
-        res.redirect('/');
+        res.status(200).json({
+            message: "Success"
+        })
     } catch (err) {
         console.error('Error saving review:', err);
         res.status(500).send('Error saving Review to database');
